@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class Bank {
-    //Scanner sc = new Scanner(System.in);
+
     static ArrayList<Account> BankAccounts = new ArrayList<>();
     static double totalBalance = 0;
 
@@ -34,21 +33,11 @@ public class Bank {
 
         interestCalc();
         totalBalance();
-        //inputUser();
+
 
     }
 
-//   static void inputUser() {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Bankaccountnr?");
-//        Account from = sc.nextInt();
-//        Account to = sc.nextInt();
-//        double amount = sc.nextDouble();
-//
-//
-//        transfer(from, to, amount);
-//
-//    }
+
 
 
     static void transfer(Account from, Account to, double amount) {
@@ -62,13 +51,12 @@ public class Bank {
 
     }
 
-    private static double totalBalance() {
+    private static void totalBalance() {
         for (Account i : BankAccounts) {
             Bank.totalBalance += i.balance;
 
         }
         System.out.println(totalBalance);
-        return totalBalance;
     }
 
     private static void interestCalc() {

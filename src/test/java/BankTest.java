@@ -3,6 +3,8 @@ import static org.junit.Assert.*;
 
 public class BankTest {
 
+    // code coverage kan beter, dus je test nu niet alles van de bank.
+
     @Test
     public void intBalanceGreater0() {
         //given
@@ -13,6 +15,6 @@ public class BankTest {
         Bank.transfer(a,b,100);
 
         //then
-        assertEquals(true, a.balance>= 0);
+        assertEquals(true, a.balance>= 0); // IDEA: "'assertEquals()' can be simplified to 'assertTrue()' "
     }
 }

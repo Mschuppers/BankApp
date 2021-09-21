@@ -1,5 +1,6 @@
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertTrue;
 
 public class BankTest {
 
@@ -12,9 +13,9 @@ public class BankTest {
         Account b = new Account(2, 200, 1.04);
 
         //when
-        Bank.transfer(a,b,100);
+        //Bank.transfer(a,b,100);
 
         //then
-        assertEquals(true, a.balance>= 0); // IDEA: "'assertEquals()' can be simplified to 'assertTrue()' "
+        assertTrue(a.balance >= 0); // IDEA: "'assertEquals()' can be simplified to 'assertTrue()' "
     }
 }

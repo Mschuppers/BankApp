@@ -43,8 +43,9 @@ public class Bank {
 
 
     // niet alles moet static zijn, fixed
-    void transfer(Account a, Account b, double amount) {
-
+    void transfer(int number, int number2, double amount) {
+        Account a = fetchAccountNumber(number);
+        Account b = fetchAccountNumber(number2);
         try {
             a.withdraw(amount);
             b.deposit(amount);

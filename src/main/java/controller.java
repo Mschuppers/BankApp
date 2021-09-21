@@ -44,12 +44,12 @@ public class controller {
                 number = menuChoice.nextInt();
 
                 System.out.println("Select recepient");
-                //number2 = menuChoice.nextInt();
+                int number2 = menuChoice.nextInt();
 
                 System.out.println("Insert amount");
                 amount = menuChoice.nextDouble();
 
-                //abn.transfer(number,number2, amount);
+                abn.transfer(number, number2, amount);
                 break;
             case 0:
                 System.out.println("Goodbye");

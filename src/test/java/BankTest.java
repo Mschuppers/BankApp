@@ -8,7 +8,7 @@ public class BankTest {
     Bank abn;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         this.abn = new Bank();
         this.abn.createAccounts();
     }

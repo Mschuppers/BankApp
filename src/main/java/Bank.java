@@ -22,64 +22,69 @@ public class Bank {
     }
 
     void withdraw(int number, double amount) {
-
-        //gaat zoeken
         Account a = fetchAccountNumber(number);
-
-        //gaat withdrawen
         a.withdraw(amount);
 
     }
 
     void deposit(int number, double amount) {
-
-        //gaat zoeken
         Account a = fetchAccountNumber(number);
-
-        //gaat withdrawen
-        a.withdraw(amount);
+        a.deposit(amount);
 
     }
 
 
-    // niet alles moet static zijn, fixed
     void transfer(int number, int number2, double amount) {
+
         Account a = fetchAccountNumber(number);
         Account b = fetchAccountNumber(number2);
+
         try {
             a.withdraw(amount);
             b.deposit(amount);
-        } catch (Exception e) { // prima.
+        } catch (Exception e) {
             System.out.println("No money available for this transaction");
+
         }
 
     }
 
-    double totalBalance() { // mooier om hier een return te geven. kun je het ook testen. fixed
+    double totalBalance() {
         for (Account i : bankAccounts) {
-            totalBalance += i.balance;  // denk om je code layout, bijv. empty lines:  fixed
+            totalBalance += i.balance;
         }
         return totalBalance;
 
     }
 
-    // klopt deze functie wel? volgens mij moest je de renteopbrengst van één account kunnen uitrekenen: saldo*rente%  Fixed (was onder de indruk dat alles in 1x moest)
-    double interestCalc(double balance, double interest) { // mooier om hier een return te geven. kun je het ook testen. Fixed
-        balance *= interest;
-        return balance;
+
+    double interestCalc(int number) {
+
+
+        Account a = fetchAccountNumber(number);
+        fetchAccountNumber(number);
+
+        a.balance *= a.interest;
+        return a.balance;
     }
 
 
+    double checkBalance(int number) {
+        Account a = fetchAccountNumber(number);
+        fetchAccountNumber(number);
+        return a.balance;
+    }
+
     public Account fetchAccountNumber(int number) {
-        Account a = bankAccounts.get(0);
-        for (int i = 0, bankAccountsSize = bankAccounts.size(); i < bankAccountsSize; i++) {
-            a = bankAccounts.get(i);
+
+        Account a;
+        for (Account bankAccount : bankAccounts) {
+            a = bankAccount;
             if (number == a.getAccountNumber()) {
                 return a;
             }
         }
-        return a;
-
+        return null;
     }
 }
 

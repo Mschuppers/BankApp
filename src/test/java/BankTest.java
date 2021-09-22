@@ -1,21 +1,56 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
 public class BankTest {
 
-    // code coverage kan beter, dus je test nu niet alles van de bank.
+    Bank abn;
+
+    @Before
+    public void setUp() throws Exception {
+        this.abn = new Bank();
+        this.abn.createAccounts();
+    }
 
     @Test
-    public void intBalanceGreater0() {
+    public void transferCheck() {
         //given
-        Account a = new Account(1, 100, 1.04);
-        Account b = new Account(2, 200, 1.04);
+
+        Account a = abn.fetchAccountNumber(1);
+        Account b = abn.fetchAccountNumber(2);
 
         //when
-        //Bank.transfer(a,b,100);
+        abn.transfer(1, 2, 5);
 
         //then
-        assertTrue(a.balance >= 0); // IDEA: "'assertEquals()' can be simplified to 'assertTrue()' "
+        assertTrue(a.balance >= 0);
+        assertTrue(b.balance >= 0);
     }
+
+    @Test
+    public void withdrawCheck() {
+        //given
+
+        Account a = abn.fetchAccountNumber(1);
+
+        //when
+        abn.withdraw(1, 100);
+
+        //then
+        assertTrue(a.balance >= 0);
+    }
+
+    @Test
+    public void totalBalanceCheck() {
+        //given
+
+
+        //when
+        abn.totalBalance();
+
+        //then
+        assertTrue(abn.totalBalance >= 0);
+    }
+
 }

@@ -23,13 +23,22 @@ public class Account {
         this.interest = interest;
     }
 
+    public Account(int accountnumber) {
+        this.accountNumber = accountNumber;
+
+    }
+
+    public Account(double balance, double interest) {
+        this(24);
+        this.balance = 0.00;
+        this.interest = 1.04;
+    }
 
     //Methods
     void deposit(double amount) { // waarom to en niet op this?
         System.out.println("Request deposit to " + this.accountNumber + " with balance: " + this.balance);
         this.balance += amount;
         System.out.println("New balance for " + this.accountNumber + " = " + this.balance);
-        setBalance(this.balance);
 
     }
 
@@ -45,7 +54,7 @@ public class Account {
             }
         } catch (Exception e) {
             System.out.println("Not enough funds, try again");
-            System.exit(-1);
+
 
         }
     }

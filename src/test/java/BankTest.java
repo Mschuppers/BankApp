@@ -17,8 +17,8 @@ public class BankTest {
     public void transferCheck() {
         //given
 
-        Account a = abn.fetchAccountNumber(1);
-        Account b = abn.fetchAccountNumber(2);
+        Account a = abn.searchAccount(1);
+        Account b = abn.searchAccount(2);
 
         //when
         abn.transfer(1, 2, 5);
@@ -32,7 +32,7 @@ public class BankTest {
     public void withdrawCheck() {
         //given
 
-        Account a = abn.fetchAccountNumber(1);
+        Account a = abn.searchAccount(1);
 
         //when
         abn.withdraw(1, 100);

@@ -3,25 +3,21 @@ import java.util.Scanner;
 public class controller {
     static boolean nextChoice = true;
 
+    static Bank abn = new Bank();
 
     public static void main(String[] args) {
 
-        /*nog 1 laatste issue te fixen / bekijken.
-        Zo lang de Bank abn = new bank & abn.createAccounts(); in de menuSelection staan worden
-        de objecten telkens gerest naar de defaultwaardes.
 
-        Doe maar eens optie 5 voor account 1, withdraw voor account 1 en check account 1 daarna weer.
-        Ik moet de eerder genoemde elementen nog uit deze loop halen. Verder lijkt het te werken*/
-        while (nextChoice == true) {
+        abn.createAccounts();
+        while (nextChoice) {
             menuSelection();
         }
-        System.out.println("Goodbye");
+
     }
 
 
     public static void menuSelection() {
-        Bank abn = new Bank();
-        abn.createAccounts();
+
         Scanner menuChoice = new Scanner(System.in);
         System.out.println("Select one of our services");
 
@@ -88,7 +84,8 @@ public class controller {
 
         }
     }
-
 }
+
+
 
 
